@@ -77,7 +77,7 @@ const checkOrder = order => {
           .find('[role=gridcell]')
           .first()
           .next()
-          .contains(22 - index);
+          .contains(index - 22);
       }
     });
   }
@@ -99,7 +99,7 @@ export const passBICreateTable = () => {
   cy.get(getElementFromAlias('table-create')).click();
   cy.wait(7000);
   validateCT(getTableName(0, testName), 'success');
-};
+};;
 
 export const checkInsertRoute = () => {
   // Click on Insert tab
@@ -110,7 +110,7 @@ export const checkInsertRoute = () => {
     'eq',
     `${baseUrl}/data/schema/public/tables/${getTableName(0, testName)}/insert`
   );
-};
+};;
 
 export const failBIWrongDataType = () => {
   // Check if the table creation fails for wrong inputs of each data type
@@ -133,7 +133,7 @@ export const failBIWrongDataType = () => {
 
     validateInsert(getTableName(0, testName), 0);
   }
-};
+};;
 
 export const passBIInsert20Rows = () => {
   for (let i = 0; i < 20; i += 1) {
@@ -165,7 +165,7 @@ export const passBIInsert20Rows = () => {
   }
   // Wait for insert notifications to disappear
   cy.wait(7000);
-};
+};;
 
 export const checkBrowseRoute = () => {
   // Click on Browse tab
@@ -177,12 +177,12 @@ export const checkBrowseRoute = () => {
     'eq',
     `${baseUrl}/data/schema/public/tables/${getTableName(0, testName)}/browse`
   );
-};
+};;
 
 export const passBI20RowsExist = () => {
   // Check if the 20 inserted elements reflect in the UI
   cy.get(getElementFromAlias('table-browse-rows')).contains('21');
-};
+};;
 
 export const checkPagination = () => {
   // Check if the current page is 1
@@ -206,7 +206,7 @@ export const checkPagination = () => {
   cy.wait(3000);
   // Check if the total number of pages changed
   cy.get('.-totalPages').contains('5');
-};
+};;
 
 export const passBISort = order => {
   // Scroll to top TODO responsive is messy
@@ -230,7 +230,7 @@ export const passBISort = order => {
   // Run query
   cy.get(getElementFromAlias('run-query')).click();
   cy.wait(5000);
-};
+};;
 
 export const passBIFilterQueryEq = () => {
   // Select column with type "text"
@@ -253,7 +253,7 @@ export const passBIFilterQueryEq = () => {
   // Run query
   cy.get(getElementFromAlias('run-query')).click();
   cy.wait(5000);
-};
+};;
 
 export const deleteBITestTable = () => {
   // Go to the modify section of the table
@@ -270,7 +270,7 @@ export const deleteBITestTable = () => {
   // Match the URL
   cy.url().should('eq', `${baseUrl}/data/schema/public`);
   validateCT(getTableName(0, testName), 'failure');
-};
+};;
 
 export const failBINullKeys = () => {
   const textIndex = dataTypes.indexOf('text');
@@ -290,7 +290,7 @@ export const failBINullKeys = () => {
   // Wait for insert notifications to disappear
   cy.wait(7000);
   validateInsert(getTableName(0, testName), 20);
-};
+};;
 
 export const failBIUniqueKeys = () => {
   // Type a string in the text type fields of some rows  (to be tested in Browse rows)
@@ -327,10 +327,10 @@ export const failBIUniqueKeys = () => {
   // cy.get('.notification-error').click();
   cy.wait(7000);
   validateInsert(getTableName(0, testName), 21);
-};
+};;
 export const setValidationMetaData = () => {
   setMetaData();
-};
+};;
 
 // /////////////////////////////////////    Buttons /////////////////////////////////
 export const passEditButton = () => {
@@ -351,7 +351,7 @@ export const passEditButton = () => {
   // cy.get('h4').contains('Edited!', { timeout: 7000 });
   // cy.get('.notification-error');
   cy.wait(7000);
-};
+};;
 
 export const passCloneButton = () => {
   cy.get(getElementFromAlias('table-browse-rows')).click();
@@ -361,7 +361,7 @@ export const passCloneButton = () => {
     'eq',
     `${baseUrl}/data/schema/public/tables/${getTableName(0, testName)}/insert`
   );
-};
+};;
 
 export const passDeleteRow = () => {
   cy.get(getElementFromAlias('table-browse-rows')).click();
@@ -372,4 +372,4 @@ export const passDeleteRow = () => {
   });
   // cy.get('.notification-error');
   cy.wait(14000);
-};
+};;
