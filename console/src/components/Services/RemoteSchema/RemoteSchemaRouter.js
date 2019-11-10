@@ -25,8 +25,7 @@ const filterItem = dispatch => {
     const matchedTables = dataList.filter(data => {
       return (
         data.name
-          .toLowerCase()
-          .indexOf(searchVal ? searchVal.toLowerCase() : '') !== -1
+          .toLowerCase().includes(searchVal ? searchVal.toLowerCase() : '')
       );
     });
     dispatch({
@@ -113,4 +112,4 @@ const getRemoteSchemaRouter = (connect, store, composeOnEnterHooks) => {
 };
 
 export default getRemoteSchemaRouter;
-export { appPrefix };
+export { appPrefix};
