@@ -19,7 +19,7 @@ const pgCategoryCode = {
 const topCategory = ['N', 'S', 'B', 'D', 'T'];
 
 const restCategory = [
-  ...Object.keys(pgCategoryCode).filter(p => topCategory.indexOf(p) === -1),
+  ...Object.keys(pgCategoryCode).filter(p => !topCategory.includes(p)),
 ];
 
 const aggCategory = [...topCategory, ...restCategory];
@@ -31,4 +31,4 @@ const serialTypes = [
   'N',
 ];
 
-export { pgCategoryCode, aggCategory, serialTypes };
+export { pgCategoryCode, aggCategory, serialTypes};
