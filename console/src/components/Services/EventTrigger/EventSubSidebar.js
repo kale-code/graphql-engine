@@ -24,7 +24,7 @@ const EventSubSidebar = ({
     // form new schema
     const matchedTables = [];
     triggerList.map(trigger => {
-      if (trigger.name.indexOf(searchTerm) !== -1) {
+      if (trigger.name.includes(searchTerm)) {
         matchedTables.push(trigger);
       }
     });
@@ -65,7 +65,7 @@ const EventSubSidebar = ({
           let activeTableClass = '';
           if (
             trigger === currentTrigger &&
-            currentLocation.indexOf(currentTrigger) !== -1
+            currentLocation.includes(currentTrigger)
           ) {
             activeTableClass = styles.activeLink;
           }
