@@ -82,7 +82,7 @@ const getDefaultFunctionsOptions = (funcs, identifier) => {
       colIdentifier: identifier,
       title: 'All Functions',
     };
-    if (commonlyUsedFunctions.indexOf(f) !== -1) {
+    if (commonlyUsedFunctions.includes(f)) {
       if (defaultValues.length === 1) {
         defaultValues.push({
           title: 'Frequently Used Functions',
